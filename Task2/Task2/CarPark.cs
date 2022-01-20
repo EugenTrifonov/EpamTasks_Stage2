@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Task2
@@ -7,11 +8,11 @@ namespace Task2
     {
         private static CarPark _park;
 
-        public List<Car> CarList;
+        private List<Car> _carList;
 
         private CarPark()
         {
-            CarList = new List<Car>();
+            _carList = new List<Car>();
         }
 
         public static CarPark GetPark()
@@ -26,24 +27,24 @@ namespace Task2
 
         public void Add(Car car)
         {
-            CarList.Add(car);
+            _carList.Add(car);
         }
 
         public int CountTypes()
         {
-            return CarList.Select(x => x.Brand).Distinct().Count();
+            return _carList.Select(x => x.Brand).Distinct().Count();
         }
 
         public int CountAll()
         {
-            return CarList.Sum(x => x.Amount);
+            return _carList.Sum(x => x.Amount);
         }
 
         public double GetAveragePrice()
         {
             double price = 0;
 
-            foreach (Car car in CarList)
+            foreach (Car car in _carList)
             {
                 price += car.Amount * car.Price;
             }
@@ -53,7 +54,12 @@ namespace Task2
 
         public double GetAveragePriceOfBrand(string type)
         {
-            List<Car> selectedCars = CarList.Where(x => x.Brand == type).ToList();
+            List<Car> selectedCars = _carList.Where(x => x.Brand == type).ToList();
+
+            if (selectedCars.Count==0)
+            {
+                throw new Exception($"No car with brand:{type} has been found");
+            }
 
             double price = 0;
             int amount = 0;

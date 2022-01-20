@@ -2,16 +2,19 @@
 
 namespace Task2.Comands
 {
-    public class GetAveragePriceOfBrand:Command
+    public class GetAveragePriceOfBrand:ICommand
     {
         private string _brand;
 
-        public GetAveragePriceOfBrand(string brand):base()
+        private CarPark _park;
+
+        public GetAveragePriceOfBrand(string brand)
         {
-            _brand = brand; 
+            _park = CarPark.GetPark();
+            _brand = brand;
         }
 
-        public override void Execute()
+        public void Execute()
         {
             Console.WriteLine($"Average car price of brand {_brand}:{_park.GetAveragePriceOfBrand(_brand)}");
         }

@@ -5,14 +5,23 @@ namespace Task2
 {
     class Program
     {
+        public static bool status=true;
+
         static void Main(string[] args)
         {
             Invoker invoker = new Invoker();
-
-            while (true) 
+            
+            while (status) 
             {
-                invoker.SetCommand(Helper.GetCommand(Console.ReadLine().Split(' ')));
-                invoker.Run();
+                try
+                {
+                    invoker.SetCommand(Helper.GetCommand(Console.ReadLine().Split(' ')));
+                    invoker.Run();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
             }
         }
     }

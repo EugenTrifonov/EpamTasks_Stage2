@@ -2,11 +2,16 @@
 
 namespace Task2.Comands
 {
-    public class CountTypesCommand:Command
+    public class CountTypesCommand:ICommand
     {
-        public CountTypesCommand() : base() { }
+        private CarPark _park;
 
-        public override void Execute() 
+        public CountTypesCommand()
+        {
+            _park = CarPark.GetPark();
+        }
+
+        public void Execute() 
         {
             Console.WriteLine("Amount of types in the park: "+_park.CountTypes());
         }

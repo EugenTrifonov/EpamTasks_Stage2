@@ -9,7 +9,7 @@ namespace Task2
     {
         public static List<string> CommandWords = new List<string> { "add", "count", "types", "all", "average", "price", "type", "exit" };
 
-        public static Command GetCommand(string[] args)
+        public static ICommand GetCommand(string[] args)
         {
             string command = string.Empty;
             List<string> parameters = new List<string>();
@@ -33,23 +33,30 @@ namespace Task2
                     {
                         return new AddComand(new Car(parameters[0], parameters[1], Convert.ToInt32(parameters[2]), Convert.ToInt32(parameters[3])));
                     }
-                    return new IncorrectCommand("Incorrect arguments(type,model,amount,price)");
+                    throw new Exception("Incorrect arguments(brand,model,amount,price)");
+
                 case "counttypes":
                     return new CountTypesCommand();
+
                 case "countall":
                     return new CountAllCommand();
+
                 case "averageprice":
                     return new GetAveragePrice();
+
                 case "averagepricetype":
                     if (parameters.Count() == 1)
                     {
                         return new GetAveragePriceOfBrand(parameters[0]);
                     }
-                    return new IncorrectCommand("Incorrect arguments(type)");
+
+                    throw new Exception("Incorrect arguments(brand)");
+
                 case "exit":
                     return new ExitCommand();
+
                 default:
-                    return new IncorrectCommand("Incorrect command");
+                    throw new Exception("Incorrect command");
             }
         }
 

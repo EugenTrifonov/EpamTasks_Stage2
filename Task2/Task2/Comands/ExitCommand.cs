@@ -2,11 +2,11 @@
 
 namespace Task2.Comands
 {
-    public class ExitCommand:Command
+    public class ExitCommand:ICommand
     {
-        public override void Execute() 
+        public void Execute() 
         {
-            Environment.Exit(0);
+            Program.status = false;
         }
     }
 }

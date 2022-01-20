@@ -2,11 +2,16 @@
 
 namespace Task2.Comands
 {
-    public class CountAllCommand:Command
+    public class CountAllCommand:ICommand
     {
-        public CountAllCommand() : base() { }
+        private CarPark _park;
 
-        public override void Execute()
+        public CountAllCommand()
+        {
+            _park = CarPark.GetPark();
+        }
+
+        public void Execute()
         {
             Console.WriteLine("Amount of cars in the park:"+_park.CountAll());
         }

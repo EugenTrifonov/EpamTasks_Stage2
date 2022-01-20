@@ -1,15 +1,18 @@
 ﻿namespace Task2.Comands
 {
-    public class AddComand:Command
+    public class AddComand:ICommand
     {
         private Car _car;
 
-        public AddComand(Car car):base()
+        private CarPark _park;
+
+        public AddComand(Car car)
         {
+            _park = CarPark.GetPark();
             _car = car;
         }
 
-        public override void Execute()  
+        public void Execute()  
         {
             _park.Add(_car);     
         }

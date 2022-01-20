@@ -2,11 +2,16 @@
 
 namespace Task2.Comands
 {
-    public class GetAveragePrice:Command
+    public class GetAveragePrice:ICommand
     {
-        public GetAveragePrice() : base() { }
+        private CarPark _park;
 
-        public override void Execute()
+        public GetAveragePrice()
+        {
+            _park = CarPark.GetPark();
+        }
+
+        public void Execute()
         {
             Console.WriteLine("Average car price:"+ _park.GetAveragePrice());
         }
