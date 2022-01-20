@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task2
 {
@@ -30,7 +27,7 @@ namespace Task2
         public void Add(Car car)
         {
             CarList.Add(car);
-        } 
+        }
 
         public int CountTypes()
         {
@@ -45,9 +42,10 @@ namespace Task2
         public double GetAveragePrice()
         {
             double price = 0;
-            foreach(Car car in CarList)
+
+            foreach (Car car in CarList)
             {
-                price += car.Amount*car.Price;
+                price += car.Amount * car.Price;
             }
 
             return (double)price / CountAll();
@@ -58,7 +56,7 @@ namespace Task2
             List<Car> selectedCars = CarList.Where(x => x.Brand == type).ToList();
 
             double price = 0;
-            int amount =0;
+            int amount = 0;
 
             foreach (Car car in selectedCars)
             {

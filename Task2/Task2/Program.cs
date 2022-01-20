@@ -8,6 +8,7 @@ namespace Task2
         static void Main(string[] args)
         {
             Invoker invoker = new Invoker();
+
             while (true) 
             {
                 invoker.SetCommand(Helper.GetCommand(Console.ReadLine().Split(' ')));

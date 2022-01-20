@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task2.Comands
 {
@@ -17,7 +13,7 @@ namespace Task2.Comands
 
         public override void Execute()
         {
-            Console.WriteLine($"Average car price of the brand {_brand}:{_park.GetAveragePriceOfBrand(_brand)}");
+            Console.WriteLine($"Average car price of brand {_brand}:{_park.GetAveragePriceOfBrand(_brand)}");
         }
     }
 }
