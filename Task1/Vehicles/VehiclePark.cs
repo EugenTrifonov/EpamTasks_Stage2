@@ -4,9 +4,11 @@ using System.Linq;
 using Vehicles.Exceptions;
 using Vehicles.Vehicles;
 
+
 namespace Vehicles
 {
-    class VehiclePark
+    [Serializable]
+    public class VehiclePark
     {
         public List<Vehicle> VehicleList { get; set; }
 
