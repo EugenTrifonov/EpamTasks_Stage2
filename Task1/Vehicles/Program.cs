@@ -37,8 +37,15 @@ namespace Vehicles
                     new Chassis(4, 4, 50),
                     new Transmission(TransmissionType.Automatic, 7, "KGD43"),
                     1500);
+
                 List<Vehicle> Vehicles = new List<Vehicle> { NewCar, NewBus, NewScooter, NewTruck };
-                VehiclePark Park = new VehiclePark(Vehicles);
+                VehiclePark Park = new VehiclePark();
+
+                Park.AddVehicle(NewCar);
+                Park.AddVehicle(NewBus);
+                Park.AddVehicle(NewScooter);
+                Park.AddVehicle(NewTruck);
+
                 Utilities.SerializeVehiclesFullInfoWithVolumeMoreThen(Park.VehicleList, 1.5);
                 Utilities.SerializeVehiclesFullInfoGroupByTransmissionType(Park.VehicleList);
                 Utilities.SerializeEngineTypeNumberCapacityForTruckBus(Park.VehicleList);

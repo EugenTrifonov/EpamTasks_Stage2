@@ -10,9 +10,9 @@ namespace Vehicles
     [Serializable]
     public class VehiclePark
     {
-        public List<Vehicle> VehicleList { get; set; }
+        public List<Vehicle> VehicleList { get; private set; }
 
-        public VehiclePark(List<Vehicle> vehicleList) => VehicleList = vehicleList;
+        public VehiclePark() => VehicleList = new List<Vehicle>();
 
         public bool CheckId(int id)
         {
