@@ -5,7 +5,6 @@ namespace Task2.Comands
     public class GetAveragePriceOfBrand:ICommand
     {
         private string _brand;
-
         private CarPark _park;
 
         public GetAveragePriceOfBrand(string brand)

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task2.Comands
+﻿namespace Task2.Comands
 {
     public class ExitCommand:ICommand
     {

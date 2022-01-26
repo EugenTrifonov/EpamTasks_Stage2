@@ -15,7 +15,7 @@ namespace Task2
             {
                 try
                 {
-                    invoker.SetCommand(Helper.GetCommand(Console.ReadLine().Split(' ')));
+                    invoker.SetCommand(CommandFactory.GetCommand(Console.ReadLine().Split(' ')));
                     invoker.Run();
                 }
                 catch (Exception exception)

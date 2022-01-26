@@ -3,7 +3,6 @@
     public class AddComand:ICommand
     {
         private Car _car;
-
         private CarPark _park;
 
         public AddComand(Car car)

@@ -5,7 +5,7 @@ using Task2.Comands;
 
 namespace Task2
 {
-    public static class Helper
+    public static class CommandFactory
     {
         public static List<string> CommandWords = new List<string> { "add", "count", "types", "all", "average", "price", "type", "exit" };
 
@@ -42,6 +42,11 @@ namespace Task2
                     return new CountAllCommand();
 
                 case "averageprice":
+                    if (parameters.Count != 0)
+                    {
+                        throw new Exception("Incorrect command");
+                    }
+
                     return new GetAveragePrice();
 
                 case "averagepricetype":
