@@ -39,7 +39,7 @@ namespace UnequalCharacters
                 }
 
                 Lengths.Add(NumberofUnequalCharacters);
-                NumberofUnequalCharacters = Utilities.GetMaxIntInList(Lengths);
+                NumberofUnequalCharacters = Utilities.GetMaxNumberInList(Lengths);
 
             }
             return NumberofUnequalCharacters;

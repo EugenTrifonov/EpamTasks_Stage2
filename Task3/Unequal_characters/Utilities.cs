@@ -10,9 +10,10 @@ namespace UnequalCharacters
         /// </summary>
         /// <param Input list="list"></param>
         /// <returns></returns>
-        public static int GetMaxIntInList(List<int> list)
+        public static int GetMaxNumberInList(List<int> list)
         {
             int max = list[0];
+
             foreach (int number in list)
             {
                 if (number > max)
@@ -20,6 +21,7 @@ namespace UnequalCharacters
                     max = number;
                 }
             }
+
             return max;
         }
 
@@ -38,6 +40,7 @@ namespace UnequalCharacters
             {
                 throw new Exception("Too much arguments");
             }
+
             return true;
         }
     }

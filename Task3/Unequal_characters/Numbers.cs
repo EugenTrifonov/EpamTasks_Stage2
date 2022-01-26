@@ -7,6 +7,7 @@ namespace UnequalCharacters
         public static int GetMaxNumberofSameNumbers(string[] args)
         {
             List<int> lengths = new List<int>() { 0 };
+
             if (Utilities.CheckInput(args))
             {
                 char checkCharacter = args[0][0];
@@ -32,7 +33,7 @@ namespace UnequalCharacters
                 }
             }
 
-            return Utilities.GetMaxIntInList(lengths);
+            return Utilities.GetMaxNumberInList(lengths);
         }
 
         private static bool CheckNumber(char character)

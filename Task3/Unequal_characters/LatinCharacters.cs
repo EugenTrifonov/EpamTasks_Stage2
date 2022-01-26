@@ -7,6 +7,7 @@ namespace UnequalCharacters
         public static int GetMaxNumberofSameLatinCharacters(string[] args)
         {
             List<int> lengths = new List<int>() { 0 };
+
             if (Utilities.CheckInput(args))
             {
                 char checkCharacter = args[0][0];
@@ -32,8 +33,9 @@ namespace UnequalCharacters
                 }
             }
 
-            return Utilities.GetMaxIntInList(lengths);
+            return Utilities.GetMaxNumberInList(lengths);
         }
+
         private static bool CheckLatin(char character)
         {
             return character >= 65 && character <= 90 || character >= 97 && character <= 122;
