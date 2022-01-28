@@ -1,15 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Vehicles.Components;
 using Vehicles.Enums;
+using Vehicles.Exceptions;
 using Vehicles.Vehicles;
 
-namespace FifthTaskTests
+namespace Tests
 {
     [TestClass]
-    public class FifthTaskTests
+    public class InitializationTest
     {
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
+        [ExpectedException(typeof(InitializationException))]
         public void CreateCarWithoutEngine()
         {
             Vehicle car = new Car(
@@ -19,7 +20,7 @@ namespace FifthTaskTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
+        [ExpectedException(typeof(InitializationException))]
         public void CreateCarWithoutChassis()
         {
             Vehicle car = new Car(
@@ -29,7 +30,7 @@ namespace FifthTaskTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
+        [ExpectedException(typeof(InitializationException))]
         public void CreateCarWithoutTransmission()
         {
             Vehicle car = new Car(
