@@ -9,7 +9,7 @@ namespace Tests
         [TestMethod]
         public void EmptyInputTest()
         {
-            string [] sequence = new string[] { };
+            string[] sequence = new string[] { };
             int actual = Numbers.GetMaxNumberofSameNumbers(sequence);
 
             Assert.AreEqual(0, actual);
@@ -22,7 +22,7 @@ namespace Tests
         [DataRow(new string[] { "as11fddgdgyuj111qw" }, 3)]
         [DataRow(new string[] { "111dsa[" }, 3)]
         [DataRow(new string[] { "fddgfgdsdfs" }, 0)]
-        public void GetMaxNumberofSameNumbersPositiveTest(string [] sequence, int expected)
+        public void GetMaxNumberofSameNumbersPositiveTest(string[] sequence, int expected)
         {
             int actual = Numbers.GetMaxNumberofSameNumbers(sequence);
             Assert.AreEqual(expected, actual);
