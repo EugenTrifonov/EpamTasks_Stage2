@@ -3,7 +3,7 @@ using Task2.Comands;
 
 namespace Task2
 {
-    class Program
+    public class Program
     {
         public static bool status=true;
 
