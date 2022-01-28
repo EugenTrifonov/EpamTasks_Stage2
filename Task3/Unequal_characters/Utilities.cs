@@ -34,8 +34,9 @@ namespace UnequalCharacters
         {
             if (args.Length == 0)
             {
-                throw new Exception("Empty input");
+                return false;
             }
+
             if (args.Length > 1)
             {
                 throw new Exception("Too much arguments");

@@ -6,6 +6,11 @@ namespace UnequalCharacters
     {
         public static int GetMaxNumberofSameNumbers(string[] args)
         {
+            if (args.Length == 0) 
+            {
+                return 0;
+            }
+
             List<int> lengths = new List<int>() { 0 };
 
             if (Utilities.CheckInput(args))

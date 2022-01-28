@@ -14,52 +14,36 @@ namespace UnequalCharacters
         /// <returns></returns>
         public static int GetMaxNumberofUnequalCharacters(string[] args)
         {
+
             int NumberofUnequalCharacters = 0;
 
             if (Utilities.CheckInput(args))
             {
                 CharacterSequence = args[0];
-                int CurrentIndex = 0;
-                string CheckedCharacters = String.Empty;
+                List<string> CheckedCharacters = new List<string> {""};
                 List<int> Lengths = new List<int>();
 
-                foreach (char character in CharacterSequence)
+                for (int index = 0; index < CharacterSequence.Length; index++)
                 {
-                    if (CheckedCharacters.Contains(character.ToString()))
+                    if (CheckedCharacters[CheckedCharacters.Count-1].Contains(CharacterSequence[index].ToString()))
                     {
                         Lengths.Add(NumberofUnequalCharacters);
-                        NumberofUnequalCharacters -= IndexOfSameLeftNearestCharacter(character, CharacterSequence, CurrentIndex);
+                        CheckedCharacters.Add("");
+                        NumberofUnequalCharacters--;
                     }
                     else
                     {
                         NumberofUnequalCharacters++;
-                        CheckedCharacters += character;
+                        CheckedCharacters[CheckedCharacters.Count - 1] += CharacterSequence[index];
                     }
-                    CurrentIndex++;
                 }
 
                 Lengths.Add(NumberofUnequalCharacters);
                 NumberofUnequalCharacters = Utilities.GetMaxNumberInList(Lengths);
 
             }
+
             return NumberofUnequalCharacters;
-        }
-
-        /// <summary>
-        /// Get index of left nearest same character 
-        /// </summary>
-        /// <param Character thats needs to find="character"></param>
-        /// <param Character sequence="sequence"></param>
-        /// <param Current index of character="CurrentIndex"></param>
-        /// <returns></returns>
-        private static int IndexOfSameLeftNearestCharacter(char character, string sequence, int CurrentIndex)
-        {
-            while (sequence[CurrentIndex - 1] != character)
-            {
-                CurrentIndex--;
-            }
-
-            return CurrentIndex - 1;
         }
     }
 }
