@@ -9,6 +9,11 @@ namespace Task2
     {
         public static List<string> CommandWords = new List<string> { "add", "count", "types", "all", "average", "price", "type", "exit" };
 
+        /// <summary>
+        /// Get concrete command by input arguments 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static ICommand GetCommand(string[] args)
         {
             string command = string.Empty;
@@ -65,6 +70,11 @@ namespace Task2
             }
         }
 
+        /// <summary>
+        /// Input check for add command
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private static bool CheckInputForAdd(List<string> parameters)
         {
             if (parameters.Count > 4)

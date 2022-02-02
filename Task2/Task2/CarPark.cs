@@ -25,21 +25,37 @@ namespace Task2
             return _park;
         }
 
+        /// <summary>
+        /// Add new car to list
+        /// </summary>
+        /// <param name="car"></param>
         public void Add(Car car)
         {
             _carList.Add(car);
         }
 
+        /// <summary>
+        /// Count of brands of cars in list
+        /// </summary>
+        /// <returns></returns>
         public int CountTypes()
         {
             return _carList.Select(x => x.Brand).Distinct().Count();
         }
 
+        /// <summary>
+        /// Count of cars in list
+        /// </summary>
+        /// <returns></returns>
         public int CountAll()
         {
             return _carList.Sum(x => x.Amount);
         }
 
+        /// <summary>
+        /// Get average price of cars in list
+        /// </summary>
+        /// <returns></returns>
         public double GetAveragePrice()
         {
             double price = 0;
@@ -52,6 +68,11 @@ namespace Task2
             return (double)price / CountAll();
         }
 
+        /// <summary>
+        /// Get average price of concrete car brand 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public double GetAveragePriceOfBrand(string type)
         {
             List<Car> selectedCars = _carList.Where(x => x.Brand == type).ToList();
