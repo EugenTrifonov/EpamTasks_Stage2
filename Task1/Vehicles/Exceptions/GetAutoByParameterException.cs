@@ -4,6 +4,6 @@ namespace Vehicles.Exceptions
 {
     public class GetAutoByParameterException : Exception
     {
-        public GetAutoByParameterException(string message) : base(message) { }
+        public GetAutoByParameterException(string parameter) : base($"Parameter {parameter} hasn't been found") { }
     }
 }

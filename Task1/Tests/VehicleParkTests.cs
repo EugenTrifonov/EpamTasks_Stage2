@@ -35,7 +35,7 @@ namespace Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AddException))]
+        [ExpectedException(typeof(AddAutoException))]
         public void NegativeAddTest()
         {
             _park.AddVehicle(_testcar);

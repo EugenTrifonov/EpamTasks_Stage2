@@ -4,6 +4,6 @@ namespace Vehicles.Exceptions
 {
     public class RemoveAutoException : Exception
     {
-        public RemoveAutoException(string message) : base(message) { }
+        public RemoveAutoException(int id) : base($"There is no vehicle with id = {id}") { }
     }
 }

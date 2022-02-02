@@ -35,7 +35,7 @@ namespace Vehicles
                 VehicleList.Add(vehicle);
             }
 
-            else throw new AddException($"Vehicle with id {vehicle.Id} already exists");
+            else throw new AddAutoException(vehicle.Id);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Vehicles
         {
             if (!GetAllParameters().Contains(parameter))
             {
-                throw new GetAutoByParameterException($"Parameter {parameter} hasn't been found");
+                throw new GetAutoByParameterException(parameter);
             }
 
             List<Vehicle> selectedVehicles = new List<Vehicle>();
@@ -78,7 +78,7 @@ namespace Vehicles
         {
             if (!CheckId(id))
             {
-                throw new UpdateAutoException($"There is no vehicle with id = {id}");
+                throw new UpdateAutoException(id);
             }
 
             int index = VehicleList.IndexOf(VehicleList.Where(x => x.Id == id).FirstOrDefault());
@@ -93,7 +93,7 @@ namespace Vehicles
         {
             if (!CheckId(id))
             {
-                throw new RemoveAutoException($"There is no vehicle with id = {id}");
+                throw new RemoveAutoException(id);
             }
 
             VehicleList.Remove(VehicleList.Find(x => x.Id == id));
