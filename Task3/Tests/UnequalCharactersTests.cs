@@ -23,6 +23,8 @@ namespace Tests
         [DataRow("aaaaaaaaaaaaa", 1)]
         public void GetTheLongestUniqueSubsequenceLength_VariousInput_CorrestResult(string sequence, int expected)
         {
+            string[] testSequence = new string[] { sequence };
+
             var actual = UnequalCharactersSequence.GetMaxNumberofUnequalCharacters(new string[] { sequence });
 
             Assert.AreEqual(expected, actual);

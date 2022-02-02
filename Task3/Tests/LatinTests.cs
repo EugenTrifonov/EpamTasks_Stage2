@@ -10,6 +10,7 @@ namespace Tests
         public void EmptyInputTest()
         {
             string[] sequence = new string[] { };
+
             int actual = LatinCharacters.GetMaxNumberofSameLatinCharacters(sequence);
 
             Assert.AreEqual(0, actual);
@@ -24,7 +25,9 @@ namespace Tests
         [DataRow("впаыпрнелха13213213", 0)]
         public void GetMaxNumberofSameNumbersPositiveTest(string sequence, int expected)
         {
-            int actual = LatinCharacters.GetMaxNumberofSameLatinCharacters(new string[] { sequence });
+            string[] testSequence = new string[] { sequence };
+
+            int actual = LatinCharacters.GetMaxNumberofSameLatinCharacters(testSequence);
 
             Assert.AreEqual(expected, actual);
         }

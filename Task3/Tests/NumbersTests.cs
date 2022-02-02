@@ -10,21 +10,24 @@ namespace Tests
         public void EmptyInputTest()
         {
             string[] sequence = new string[] { };
+
             int actual = Numbers.GetMaxNumberofSameNumbers(sequence);
 
             Assert.AreEqual(0, actual);
         }
 
         [TestMethod]
-        [DataRow(new string[] { "11112233" }, 4)]
-        [DataRow(new string[] { "1122222233" }, 6)]
-        [DataRow(new string[] { "112233333333" }, 8)]
-        [DataRow(new string[] { "as11fddgdgyuj111qw" }, 3)]
-        [DataRow(new string[] { "111dsa[" }, 3)]
-        [DataRow(new string[] { "fddgfgdsdfs" }, 0)]
-        public void GetMaxNumberofSameNumbersPositiveTest(string[] sequence, int expected)
+        [DataRow("11112233", 4)]
+        [DataRow("1122222233", 6)]
+        [DataRow("112233333333", 8)]
+        [DataRow("as11fddgdgyuj111qw", 3)]
+        [DataRow("111dsa[", 3)]
+        [DataRow("fddgfgdsdfs", 0)]
+        public void GetMaxNumberofSameNumbersPositiveTest(string sequence, int expected)
         {
-            int actual = Numbers.GetMaxNumberofSameNumbers(sequence);
+            string[] testSequence = new string[] { sequence };
+
+            int actual = Numbers.GetMaxNumberofSameNumbers(testSequence);
 
             Assert.AreEqual(expected, actual);
         }
