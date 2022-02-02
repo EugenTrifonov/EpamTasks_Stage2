@@ -14,11 +14,20 @@ namespace Vehicles
 
         public VehiclePark() => VehicleList = new List<Vehicle>();
 
+        /// <summary>
+        /// Check for vehicle with such id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool CheckId(int id)
         {
             return VehicleList.Select(x => x.Id).Contains(id);
         }
 
+        /// <summary>
+        /// Add new vehicle to the list
+        /// </summary>
+        /// <param name="vehicle"></param>
         public void AddVehicle(Vehicle vehicle)
         {
             if (!CheckId(vehicle.Id))
@@ -29,11 +38,21 @@ namespace Vehicles
             else throw new AddException($"Vehicle with id {vehicle.Id} already exists");
         }
 
+        /// <summary>
+        /// Get all parameters of vehicles in list
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetAllParameters()
         {
             return VehicleList.SelectMany(x => x.GetType().GetProperties()).Select(x => x.Name).Distinct().ToList();
         }
 
+        /// <summary>
+        /// Get vehicles by parameter name and it's value
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public List<Vehicle> GetAutoByParameter(string parameter, string value)
         {
             if (!GetAllParameters().Contains(parameter))
@@ -50,6 +69,11 @@ namespace Vehicles
             return selectedVehicles;
         }
 
+        /// <summary>
+        /// Update auto with provided id
+        /// </summary>
+        /// <param name="vehicle"></param>
+        /// <param name="id"></param>
         public void UpdateAuto(Vehicle vehicle, int id)
         {
             if (!CheckId(id))
@@ -61,6 +85,10 @@ namespace Vehicles
             VehicleList[index] = vehicle;
         }
 
+        /// <summary>
+        /// Delete auto from the list with provided id 
+        /// </summary>
+        /// <param name="id"></param>
         public void RemoveAuto(int id)
         {
             if (!CheckId(id))
