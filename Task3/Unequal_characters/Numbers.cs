@@ -4,6 +4,12 @@ namespace UnequalCharacters
 {
     public class Numbers
     {
+        
+        /// <summary>
+        /// Get max number of same numbers
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static int GetMaxNumberofSameNumbers(string[] args)
         {
             if (args.Length == 0) 
@@ -41,6 +47,11 @@ namespace UnequalCharacters
             return Utilities.GetMaxNumberInList(lengths);
         }
 
+        /// <summary>
+        /// Check for number by ASCII code
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
         private static bool CheckNumber(char character)
         {
             return character >= 48 && character <= 57;

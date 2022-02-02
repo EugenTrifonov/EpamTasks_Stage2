@@ -25,6 +25,7 @@ namespace Tests
         public void GetMaxNumberofSameNumbersPositiveTest(string[] sequence, int expected)
         {
             int actual = Numbers.GetMaxNumberofSameNumbers(sequence);
+
             Assert.AreEqual(expected, actual);
         }
     }
