@@ -8,11 +8,15 @@ namespace Task4.MailRu
         private const string _url = "https://mail.ru/";
         private static IWebDriver _driver;
         public static int _messagesCount { get; private set; }
+        private const int _waitTime = 90000;
+        private const int _waitInterval = 5000;
 
-        public static void StartUpBrowser()
+        public static LoginPage StartUpBrowser()
         {
             _driver = Driver.GetInstance();
             _driver.Navigate().GoToUrl(_url);
+
+            return new LoginPage(_driver);
         }
 
         public static void CloseBrowser()
@@ -23,17 +27,16 @@ namespace Task4.MailRu
         public static InboxPage SingIn(string username, string password)
         {
             LoginPage page = new LoginPage(_driver);
-            page.EnterUsername(username);
-            page.ConfirmUsername();
-            page.EnterPassword(password);
-            return page.ConfirmPassword();
+
+            return page.EnterUsername(username).ConfirmUsername().EnterPassword(password).ConfirmPassword();
         }
 
-        public static void EnterUsername(string username)
+        public static LoginPage EnterUsername(string username)
         {
             LoginPage page = new LoginPage(_driver);
             page.EnterUsername(username);
-            page.ConfirmUsername();
+
+            return page.ConfirmUsername();
         }
 
         public static bool IsUsernameCorrect()
@@ -50,11 +53,11 @@ namespace Task4.MailRu
             return page.IsPasswordCorrect();
         }
 
-        public static void EnterPassword(string password)
+        public static InboxPage EnterPassword(string password)
         {
             LoginPage page = new LoginPage(_driver);
             page.EnterPassword(password);
-            page.ConfirmPassword();
+            return page.ConfirmPassword();
         }
 
         public static bool LastMessageCheck(string addressee)
@@ -64,20 +67,18 @@ namespace Task4.MailRu
             return page.IsAddresseeCorrect(addressee) && page.IsLastMessageUnread();
         }
 
-        public static void SendMessage(string addressee, string message)
+        public static InboxPage SendMessage(string addressee, string message)
         {
             InboxPage page = new InboxPage(_driver);
 
-            page.SendMessage(addressee, message);
+            return page.SendMessage(addressee, message);
         }
 
-        public static void SendReply(string replyMessage)
+        public static InboxPage SendReply(string replyMessage)
         {
             InboxPage page = new InboxPage(_driver);
 
-            page.OpenMessage();
-            page.OpenReplyWindow();
-            page.SendReply(replyMessage);
+            return page.OpenMessage().OpenReplyWindow().SendReply(replyMessage);
         }
 
         public static bool CheckMessageContent(string content)
@@ -93,10 +94,12 @@ namespace Task4.MailRu
             return page.GetMessageText();
         }
 
-        public static void CountMessages()
+        public static InboxPage CountMessages()
         {
             InboxPage page = new InboxPage(_driver);
             _messagesCount = page.GetMessagesCount();
+
+            return page;
         }
 
         public static int GetMessagesCount()
@@ -105,26 +108,27 @@ namespace Task4.MailRu
             return page.GetMessagesCount();
         }
 
-        public static void WaitForMessage()
+        public static InboxPage WaitForMessage()
         {
             InboxPage page = new InboxPage(_driver);
             int waitTime = 0;
 
-            while (waitTime < 90000)
+            while (waitTime < _waitTime)
             {
                 if (page.GetMessagesCount() == _messagesCount)
                 {
                     _driver.Navigate().Refresh();
-                    Thread.Sleep(5000);
-                    waitTime += 5000;
+                    Thread.Sleep(_waitInterval);
+                    waitTime += _waitInterval;
                 }
                 else
                 {
                     _messagesCount = page.GetMessagesCount();
                     break;
                 }
-
             }
+
+            return page;
         }
     }
 }

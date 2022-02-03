@@ -76,7 +76,7 @@ namespace Tests
 
         [Test]
         [TestCase(_correctUsername, _incorrectPassword)]
-        public void CorrectUsernameIncorrectPasswordSingInTest(string username, string password) 
+        public void CorrectUsernameIncorrectPasswordSingInTest(string username, string password)
         {
             MailRuUtilities.SingIn(username, password);
 

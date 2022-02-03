@@ -4,7 +4,7 @@ using System;
 
 namespace Task4.MailRu
 {
-    public class BasePage
+    public abstract class BasePage
     {
         private readonly int _waitTime = 15;
 

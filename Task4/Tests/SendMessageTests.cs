@@ -19,19 +19,20 @@ namespace Tests
             MailRuUtilities.StartUpBrowser();
             MailRuUtilities.SingIn(_mailUsername, _mailPassword);
             MailRuUtilities.CountMessages();
+
             _mailruMessagesCount = MailRuUtilities._messagesCount;
             GmailUtilities.StartUpBrowser();
             GmailUtilities.SingIn(_gmailUsername, _gmailPassword);
-            GmailUtilities.SendMessage(_mailUsername,message);
+            GmailUtilities.SendMessage(_mailUsername, message);
             MailRuUtilities.WaitForMessage();
         }
 
         [Test]
         public void IsMessageWithCorrectAdresseeAndContentCame()
         {
-            Assert.IsTrue(MailRuUtilities.GetMessagesCount() != _mailruMessagesCount
-                && MailRuUtilities.LastMessageCheck(_gmailUsername)
-                && MailRuUtilities.GetLastMessageContent() == message);
+            Assert.IsTrue(MailRuUtilities.GetMessagesCount() != _mailruMessagesCount);
+            Assert.IsTrue(MailRuUtilities.LastMessageCheck(_gmailUsername));
+            Assert.IsTrue(MailRuUtilities.GetLastMessageContent() == message);
         }
 
         [TearDown]

@@ -4,13 +4,13 @@ using System;
 
 namespace Task4.Gmail
 {
-    public class BasePage
+    public abstract  class BasePage
     {
-        private readonly int _waitTime = 15;
+        private const int _waitTime = 15;
 
-        public WebDriverWait Wait { get; }
+        protected WebDriverWait Wait { get; }
 
-        public IWebDriver Driver { get; set; }
+        protected static IWebDriver Driver { get; set; }
 
         public BasePage(IWebDriver driver)
         {

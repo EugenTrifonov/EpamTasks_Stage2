@@ -8,7 +8,6 @@ namespace Task4.MailRu
         private readonly By _lastMessage = By.XPath(message);
         private readonly By _lastMessageAddressee=By.XPath("//a[contains(@class, 'letter-list-item')][1]/descendant::span[contains(@title, '@')]");
         private readonly By _replyButton = By.XPath("//span[@title='Ответить']");
-        private readonly By _sendReplyButton = By.XPath("//span[@class='button2__txt']");
         private readonly By _messageField = By.XPath("//div[@role='textbox']//div[1]");
         private readonly By _messageText = By.XPath("//span[@class='ll-sp__normal']");
         private readonly By _messageStatus = By.XPath(message+"//div[contains(@class,'read-status')]//span");
