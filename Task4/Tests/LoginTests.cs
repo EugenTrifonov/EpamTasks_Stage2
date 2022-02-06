@@ -42,7 +42,7 @@ namespace Tests
             MailRuUtilities.EnterUsername(_correctUsername);
             MailRuUtilities.EnterPassword(_correctPassword);
 
-            bool result = MailRuUtilities.IsUsernameCorrect();
+            bool result = MailRuUtilities.IsPasswordCorrect();
 
             Assert.IsTrue(result);
         }
@@ -53,7 +53,7 @@ namespace Tests
             MailRuUtilities.EnterUsername(_correctUsername);
             MailRuUtilities.EnterPassword(_incorrectPassword);
 
-            bool result = MailRuUtilities.IsUsernameCorrect();
+            bool result = MailRuUtilities.IsPasswordCorrect();
 
             Assert.IsFalse(result);
         }
