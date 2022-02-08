@@ -1,0 +1,11 @@
+{
+  "testdata.numberOfInstances": "3",
+  "testdata.operatingSystem": "Paid: Ubuntu Pro",
+  "testdata.machineClass": "Regular",
+  "testdata.machineSeries": "N1",
+  "testdata.machineType": "vCPUs: 4, RAM: 15GB",
+  "testdata.GPU": "NVIDIA Tesla P4",
+  "testdata.GPUAmount": "2",
+  "testdata.localSSD": "1x375 GB",
+  "testdata.DataCenterLocation": "London (europe-west2)"
+}

@@ -1,0 +1,11 @@
+{
+  "testdata.numberOfInstances": "5",
+  "testdata.operatingSystem": "Free",
+  "testdata.machineClass": "Regular",
+  "testdata.machineSeries": "N1",
+  "testdata.machineType": "vCPUs: 8, RAM: 30GB",
+  "testdata.GPU": "NVIDIA Tesla P100",
+  "testdata.GPUAmount": "1",
+  "testdata.localSSD": "2x375 GB",
+  "testdata.DataCenterLocation": "Frankfurt (europe-west3)"
+}
