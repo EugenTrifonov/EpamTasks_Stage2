@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using Task5.Base;
 
 namespace Task5.GoogleCloud

@@ -1,7 +1,5 @@
 ﻿using NLog;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using Task5.Base;
 
 namespace Task5.GoogleCloud

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task5.Base;
+﻿using Task5.Base;
 
 namespace Task5.Utilities
 {
