@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\trifo\.nuget\packages\nlog.config\4.7.13\contentFiles\any\any\NLog.config" />
+    <None Remove="C:\Users\trifo\.nuget\packages\nlog.schema\4.7.13\contentFiles\any\any\NLog.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NLog" Version="4.7.13" />
+    <PackageReference Include="NLog.Schema" Version="4.7.13" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
+    <PackageReference Include="Selenium.Support" Version="4.1.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.1.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="98.0.4758.8000" />
+    <PackageReference Include="WebDriverManager" Version="2.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>NLog.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

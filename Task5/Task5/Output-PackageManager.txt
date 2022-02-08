@@ -1,0 +1,14 @@
+﻿Restoring packages for D:\Stage_2\Task5\Task5\Task5.csproj...
+Installing NuGet package Newtonsoft.Json 13.0.1.
+Committing restore...
+Writing assets file to disk. Path: D:\Stage_2\Task5\Task5\obj\project.assets.json
+Successfully uninstalled 'Newtonsoft.Json 12.0.3' from Task5
+Successfully installed 'Newtonsoft.Json 13.0.1' to Task5
+Executing nuget actions took 144 ms
+Time Elapsed: 00:00:00.4151378
+========== Finished ==========
+
+Time Elapsed: 00:00:00.3281959
+========== Finished ==========
+
+
